@@ -12,26 +12,25 @@
 
 package org.mongeez;
 
-import static org.testng.Assert.assertEquals;
-
 import com.mongodb.DB;
-import com.mongodb.DBCursor;
-import com.mongodb.Mongo;
+import com.mongodb.MongoClient;
 
 import org.mongeez.validation.ValidationException;
 import org.springframework.core.io.ClassPathResource;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertEquals;
+
 @Test
 public class MongeezTest {
     private String dbName = "test_mongeez";
-    private Mongo mongo;
+    private MongoClient mongo;
     private DB db;
 
     @BeforeMethod
     protected void setUp() throws Exception {
-        mongo = new Mongo();
+        mongo = new MongoClient();
         db = mongo.getDB(dbName);
 
         db.dropDatabase();
