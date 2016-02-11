@@ -11,15 +11,12 @@
  */
 package org.mongeez;
 
-import com.mongodb.MongoClient;
-
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.core.io.Resource;
-
 import org.mongeez.reader.ChangeSetFileProvider;
 import org.mongeez.validation.ChangeSetsValidator;
 import org.mongeez.validation.DefaultChangeSetsValidator;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.core.io.Resource;
+import com.mongodb.MongoClient;
 
 /**
  * @author oleksii
@@ -43,17 +40,16 @@ public class MongeezRunner implements InitializingBean {
     }
 
     public void execute() {
-        Mongeez mongeez = new Mongeez();
+        final Mongeez mongeez = new Mongeez();
         mongeez.setMongo(mongo);
         mongeez.setDbName(dbName);
-        
-        if(changeSetsValidator != null) {
+
+        if (changeSetsValidator != null) {
             mongeez.setChangeSetsValidator(changeSetsValidator);
-        }
-        else {
+        } else {
             mongeez.setChangeSetsValidator(new DefaultChangeSetsValidator());
         }
-        
+
         if (changeSetFileProvider != null) {
             mongeez.setChangeSetFileProvider(changeSetFileProvider);
         } else {
@@ -67,23 +63,23 @@ public class MongeezRunner implements InitializingBean {
         return executeEnabled;
     }
 
-    public void setExecuteEnabled(boolean executeEnabled) {
+    public void setExecuteEnabled(final boolean executeEnabled) {
         this.executeEnabled = executeEnabled;
     }
 
-    public void setMongo(MongoClient mongo) {
+    public void setMongo(final MongoClient mongo) {
         this.mongo = mongo;
     }
 
-    public void setDbName(String dbName) {
+    public void setDbName(final String dbName) {
         this.dbName = dbName;
     }
 
-    public void setFile(Resource file) {
+    public void setFile(final Resource file) {
         this.file = file;
     }
 
-    public void setChangeSetFileProvider(ChangeSetFileProvider changeSetFileProvider) {
+    public void setChangeSetFileProvider(final ChangeSetFileProvider changeSetFileProvider) {
         this.changeSetFileProvider = changeSetFileProvider;
     }
 
