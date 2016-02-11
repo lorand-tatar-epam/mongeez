@@ -3,20 +3,20 @@
 
     <groupId>org.mongeez</groupId>
     <artifactId>examples</artifactId>
-    <version>0.9.3-SNAPSHOT</version>
+    <version>0.9.7p-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <dependencies>
         <dependency>
             <groupId>org.mongeez</groupId>
             <artifactId>mongeez</artifactId>
-            <version>0.9.5-SNAPSHOT</version>
+            <version>0.9.7p-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
-            <version>2.12.1</version>
+            <version>3.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.mongodb.morphia</groupId>
